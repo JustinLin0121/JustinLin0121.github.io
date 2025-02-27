@@ -31,14 +31,208 @@ body {
 
 
 
+header {
+    position: fixed;
+    top: -80px;
+    /* 預設隱藏 */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.421);
+    display: flex;
+    align-items: center;
+    transition: top 0.3s;
+    z-index: 9999;
+}
 
 
+@keyframes dark {
+    0% {
+        filter: brightness(100%);
+        background-image: url(img/sum.webp);
+    }
 
-.first_page {
-    background-image: url("img/light.webp");
-    background-size: cover;
+    25% {
+        filter: brightness(50%);
+        background-image: url(img/sum.webp);
+    }
+
+    50% {
+        filter: brightness(0%);
+
+    }
+
+    75% {
+        filter: brightness(50%);
+        background-image: url(img/moon.webp);
+    }
+
+    100% {
+        filter: brightness(100%);
+        background-image: url(img/moon.webp);
+    }
+
+}
+
+@keyframes light {
+    0% {
+        filter: brightness(100%);
+        background-image: url(img/moon.webp);
+    }
+
+    25% {
+        filter: brightness(50%);
+        background-image: url(img/moon.webp);
+    }
+
+    50% {
+        filter: brightness(0%);
+
+    }
+
+    75% {
+        filter: brightness(50%);
+        background-image: url(img/sum.webp);
+    }
+
+    100% {
+        filter: brightness(100%);
+        background-image: url(img/sum.webp);
+    }
+
+}
+
+.light_dark {
+    margin-right: 10px;
+    margin-left: auto;
+    height: 70%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: rgb(0, 0, 0);
+    background-image: url(img/sum.webp);
+    background-position: center center;
+    background-size: 150%;
     background-repeat: no-repeat;
 }
+
+.light_dark.dark {
+    animation: dark 1s linear forwards;
+}
+
+.light_dark.light {
+    animation: light 1s linear forwards;
+}
+
+@keyframes dark {
+    0% {
+        filter: brightness(100%);
+        background-image: url(img/sum.webp);
+    }
+
+    25% {
+        filter: brightness(50%);
+        background-image: url(img/sum.webp);
+    }
+
+    50% {
+        filter: brightness(0%);
+
+    }
+
+    75% {
+        filter: brightness(50%);
+        background-image: url(img/moon.webp);
+    }
+
+    100% {
+        filter: brightness(100%);
+        background-image: url(img/moon.webp);
+    }
+
+}
+
+
+
+
+
+
+
+
+@keyframes backdark {
+    0% {
+        filter: brightness(100%);
+        background-image: url(img/light.webp);
+    }
+
+    25% {
+        filter: brightness(50%);
+        background-image: url(img/light.webp);
+    }
+
+    50% {
+        filter: brightness(0%);
+
+    }
+
+    75% {
+        filter: brightness(50%);
+        background-image: url(img/dark.webp);
+    }
+
+    100% {
+        filter: brightness(100%);
+        background-image: url(img/dark.webp);
+    }
+
+}
+
+@keyframes backlight {
+    0% {
+        filter: brightness(100%);
+        background-image: url(img/dark.webp);
+    }
+
+    25% {
+        filter: brightness(50%);
+        background-image: url(img/dark.webp);
+    }
+
+    50% {
+        filter: brightness(0%);
+
+    }
+
+    75% {
+        filter: brightness(50%);
+        background-image: url(img/light.webp);
+    }
+
+    100% {
+        filter: brightness(100%);
+        background-image: url(img/light.webp);
+    }
+
+}
+
+.first_page.light {
+    background-image: url(img/light.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: backlight 1s linear forwards;
+}
+
+.first_page.dark {
+    background-image: url(img/dark.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: backdark 1s linear forwards;
+
+}
+
+
+
+
+
 
 .mainintro {
     backdrop-filter: blur(5px);
