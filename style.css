@@ -1,3 +1,4 @@
+/* web */
 /* * {
     border: 1px solid #000000 !important;
     box-sizing: border-box !important;
@@ -8,6 +9,8 @@
 
 :root {
     --shadow: #56565669;
+    --backcolorlightbl: #A3D4E3;
+    --backcolorlightgr: #C6E3A3;
 }
 
 body {
@@ -30,7 +33,7 @@ body {
 
 
 
-
+/* header */
 header {
     position: fixed;
     top: -80px;
@@ -45,7 +48,34 @@ header {
     z-index: 9999;
 }
 
+/* list */
+nav {
+    width: 100%;
+}
 
+.list {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* light dark button */
 @keyframes dark {
     0% {
         filter: brightness(100%);
@@ -123,33 +153,6 @@ header {
     animation: light 1s linear forwards;
 }
 
-@keyframes dark {
-    0% {
-        filter: brightness(100%);
-        background-image: url(img/sum.webp);
-    }
-
-    25% {
-        filter: brightness(50%);
-        background-image: url(img/sum.webp);
-    }
-
-    50% {
-        filter: brightness(0%);
-
-    }
-
-    75% {
-        filter: brightness(50%);
-        background-image: url(img/moon.webp);
-    }
-
-    100% {
-        filter: brightness(100%);
-        background-image: url(img/moon.webp);
-    }
-
-}
 
 
 
@@ -157,7 +160,7 @@ header {
 
 
 
-
+/* first page */
 @keyframes backdark {
     0% {
         filter: brightness(100%);
@@ -171,7 +174,6 @@ header {
 
     50% {
         filter: brightness(0%);
-
     }
 
     75% {
@@ -214,26 +216,22 @@ header {
 
 }
 
-.first_page.light {
+.first_page {
     background-image: url(img/light.webp);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+}
+
+.first_page.light {
     animation: backlight 1s linear forwards;
 }
 
 .first_page.dark {
-    background-image: url(img/dark.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
     animation: backdark 1s linear forwards;
-
 }
 
-
-
-
-
-
+/* introduction */
 .mainintro {
     backdrop-filter: blur(5px);
     height: 50vh;
@@ -255,13 +253,13 @@ header {
 }
 
 .hello {
+    user-select: none;
     font-size: 5vw;
     margin: 0;
     padding-top: 25px;
     padding-bottom: 10px;
     transition: color 0.7s ease, text-shadow 1.2s ease-in;
 }
-
 
 .hello.fire {
     text-shadow:
@@ -374,14 +372,136 @@ header {
     }
 }
 
-
-
-
 .o {
     display: inline-block;
     transition: opacity 1s ease;
+    cursor: pointer;
 }
 
 .o.hide {
     opacity: 0;
+}
+
+
+
+
+
+
+
+
+/* secend page */
+.secend_page {
+    background-color: var(--backcolorlightbl);
+    display: flex;
+}
+
+.wave {
+    position: relative;
+    display: flex;
+    margin-top: auto;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+@keyframes waveMove {
+    0% {
+        transform: translateY(25%);
+
+    }
+    100% {
+        transform: translateY(0%);
+
+    }
+}
+.wave span {
+    position: absolute;
+    width: 20%;
+    height: 250%;
+    background-color: #5bc2e1;
+    border-radius: 50%;
+}
+
+.wave span:nth-child(1) {
+    background-color: #5bc2e1;
+    left: -12.5%;
+    z-index: 9802;
+    animation: waveMove 3s ease infinite alternate;
+}
+
+.wave span:nth-child(2) {
+    background-color: #5bc2e1;
+    left: 0%;
+    z-index: 9808;
+    animation: waveMove 4s ease-in infinite alternate;
+}
+
+.wave span:nth-child(3) {
+    background-color: #5bc2e1;
+    left: 12.5%;
+    z-index: 98004;
+    animation: waveMove 2.5s ease-in infinite alternate;
+}
+
+.wave span:nth-child(4) {
+    background-color: #5bc2e1;
+    left: 25%;
+    z-index: 9801;
+    animation: waveMove 3.5s ease-in-out infinite alternate;
+}
+
+.wave span:nth-child(5) {
+    background-color: #5bc2e1;
+    left: 37.5%;
+    z-index: 9803;
+    animation: waveMove 3s linear infinite alternate;
+}
+
+.wave span:nth-child(6) {
+    background-color: #5bc2e1;
+    left: 50%;
+    z-index: 9807;
+    animation: waveMove 3.5s linear infinite alternate;
+}
+
+.wave span:nth-child(7) {
+    background-color: #5bc2e1;
+    left: 62.5%;
+    z-index: 9806;
+    animation: waveMove 2.5s ease-in-out infinite alternate;
+}
+
+.wave span:nth-child(8) {
+    background-color: #5bc2e1;
+    left: 75%;
+    z-index: 9805;
+    animation: waveMove 4s ease-in infinite alternate;
+
+}
+
+.wave span:nth-child(9) {
+    background-color: #5bc2e1;
+    left: 87.5%;
+    z-index: 9800;
+    animation: waveMove 3s linear infinite alternate;
+}
+
+
+
+
+
+
+
+
+
+
+/* third page */
+.third_page {
+    background-color: var(--backcolorlightgr);
+}
+
+.bamboo {
+    height: 100%;
+    background-image: url(img/bamboo.webp);
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
 }
