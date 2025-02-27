@@ -403,16 +403,19 @@ nav {
     height: 150px;
     overflow: hidden;
 }
+
 @keyframes waveMove {
     0% {
         transform: translateY(25%);
 
     }
+
     100% {
         transform: translateY(0%);
 
     }
 }
+
 .wave span {
     position: absolute;
     width: 20%;
