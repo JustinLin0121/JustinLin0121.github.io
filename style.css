@@ -62,6 +62,17 @@ nav {
     font-size: larger;
 }
 
+.list a {
+    text-decoration: none;
+    color: black;
+    text-shadow: ;
+    transition: color 2s ease, text-shadow 0.3s ease;
+}
+
+.list a:hover {
+    text-shadow: 0 0 10px rgb(255, 255, 0);
+    
+}
 
 
 
@@ -429,69 +440,68 @@ nav {
     position: absolute;
     width: 20%;
     height: 200%;
-    background-color: #5bc2e1;
     border-radius: 50%;
 }
 
 .wave span:nth-child(1) {
-    background-color: #5bc2e1;
+    background-color: #63d4f6;
     left: -12.5%;
-    z-index: 9802;
+    z-index: 9806;
     animation: waveMove 3s ease infinite;
 }
 
 .wave span:nth-child(2) {
-    background-color: #5bc2e1;
+    background-color: #57ccf0;
     left: 0%;
-    z-index: 9807;
+    z-index: 9802;
     animation: waveMove 4s ease-in-out infinite;
 }
 
 .wave span:nth-child(3) {
-    background-color: #5bc2e1;
+    background-color: #69cdec;
     left: 12.5%;
-    z-index: 9805;
+    z-index: 9810;
     animation: waveMove 2.5s linear infinite;
 }
 
 .wave span:nth-child(4) {
-    background-color: #5bc2e1;
+    background-color: #5dbad6;
     left: 25%;
     z-index: 9804;
     animation: waveMove 3.5s ease-in infinite;
 }
 
 .wave span:nth-child(5) {
-    background-color: #5bc2e1;
+    background-color: #64c2df;
     left: 37.5%;
     z-index: 9808;
     animation: waveMove 3s ease infinite;
 }
 
 .wave span:nth-child(6) {
-    background-color: #5bc2e1;
+    background-color: #5accef;
     left: 50%;
     z-index: 9800;
     animation: waveMove 4s ease-in-out infinite;
 }
 
 .wave span:nth-child(7) {
-    background-color: #5bc2e1;
+    background-color: #55c0e1;
     left: 62.5%;
     z-index: 9803;
     animation: waveMove 2.5s linear infinite;
 }
 
 .wave span:nth-child(8) {
-    background-color: #5bc2e1;
+    background-color: #4fb7d7;
     left: 75%;
-    z-index: 9809;
+    z-index: 9811;
     animation: waveMove 3.5s ease-in infinite;
 
 }
 
 .wave span:nth-child(9) {
-    background-color: #5bc2e1;
+    background-color: #53b1cd;
     left: 87.5%;
     z-index: 9801;
     animation: waveMove 3s ease infinite;
@@ -645,11 +655,11 @@ nav {
     position: absolute;
     width: 20%;
     height: 100%;
-    bottom: -10px;
+    bottom: -60px;
     background-image: url(img/fish1.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
-    z-index: 9806;
+    z-index: 9805;
     animation: swim1 7s linear infinite;
 }
 
@@ -661,7 +671,7 @@ nav {
     background-image: url(img/fish2.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
-    z-index: 9806;
+    z-index: 9807;
     animation: swim2 9s linear infinite;
 }
 
@@ -669,11 +679,11 @@ nav {
     position: absolute;
     width: 20%;
     height: 100%;
-    bottom: -20px;
+    bottom: -40px;
     background-image: url(img/fish3.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
-    z-index: 9806;
+    z-index: 9809;
     animation: swim3 16s linear infinite;
 }
 
