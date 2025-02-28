@@ -395,6 +395,9 @@ nav {
     display: flex;
 }
 
+
+
+/* wave */
 .wave {
     position: relative;
     display: flex;
@@ -410,10 +413,16 @@ nav {
 
     }
 
-    100% {
+    50% {
         transform: translateY(0%);
 
     }
+
+    100% {
+        transform: translateY(25%);
+
+    }
+
 }
 
 .wave span {
@@ -428,64 +437,241 @@ nav {
     background-color: #5bc2e1;
     left: -12.5%;
     z-index: 9802;
-    animation: waveMove 3s ease infinite alternate;
+    animation: waveMove 3s ease infinite;
 }
 
 .wave span:nth-child(2) {
     background-color: #5bc2e1;
     left: 0%;
-    z-index: 9808;
-    animation: waveMove 4s ease-in infinite alternate;
+    z-index: 9807;
+    animation: waveMove 4s ease-in-out infinite;
 }
 
 .wave span:nth-child(3) {
     background-color: #5bc2e1;
     left: 12.5%;
-    z-index: 98004;
-    animation: waveMove 2.5s ease-in infinite alternate;
+    z-index: 9805;
+    animation: waveMove 2.5s linear infinite;
 }
 
 .wave span:nth-child(4) {
     background-color: #5bc2e1;
     left: 25%;
-    z-index: 9801;
-    animation: waveMove 3.5s ease-in-out infinite alternate;
+    z-index: 9804;
+    animation: waveMove 3.5s ease-in infinite;
 }
 
 .wave span:nth-child(5) {
     background-color: #5bc2e1;
     left: 37.5%;
-    z-index: 9803;
-    animation: waveMove 3s linear infinite alternate;
+    z-index: 9808;
+    animation: waveMove 3s ease infinite;
 }
 
 .wave span:nth-child(6) {
     background-color: #5bc2e1;
     left: 50%;
-    z-index: 9807;
-    animation: waveMove 3.5s linear infinite alternate;
+    z-index: 9800;
+    animation: waveMove 4s ease-in-out infinite;
 }
 
 .wave span:nth-child(7) {
     background-color: #5bc2e1;
     left: 62.5%;
-    z-index: 9806;
-    animation: waveMove 2.5s ease-in-out infinite alternate;
+    z-index: 9803;
+    animation: waveMove 2.5s linear infinite;
 }
 
 .wave span:nth-child(8) {
     background-color: #5bc2e1;
     left: 75%;
-    z-index: 9805;
-    animation: waveMove 4s ease-in infinite alternate;
+    z-index: 9809;
+    animation: waveMove 3.5s ease-in infinite;
 
 }
 
 .wave span:nth-child(9) {
     background-color: #5bc2e1;
     left: 87.5%;
-    z-index: 9800;
-    animation: waveMove 3s linear infinite alternate;
+    z-index: 9801;
+    animation: waveMove 3s ease infinite;
+}
+
+
+
+
+@keyframes swim1 {
+    0% {
+        transform: translateX(-8vw) rotate(0deg);
+    }
+
+    10% {
+        transform: translateX(-8vw) rotate(-10deg);
+    }
+
+    20% {
+        transform: translateX(20vw) rotate(0deg);
+    }
+
+    30% {
+        transform: translateX(31vw) rotate(10deg);
+    }
+
+    40% {
+        transform: translateX(42vw) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateX(50vw) rotate(-10deg);
+    }
+
+    60% {
+        transform: translateX(58vw) rotate(0deg);
+    }
+
+    70% {
+        transform: translateX(72.5vw) rotate(5deg);
+    }
+
+    80% {
+        transform: translateX(87vw) rotate(-10deg);
+    }
+
+    90% {
+        transform: translateX(95.5vw) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(97vw) rotate(3deg);
+
+    }
+}
+
+@keyframes swim2 {
+    0% {
+        transform: translateX(-10vw) rotate(0deg);
+    }
+
+    10% {
+        transform: translateX(-10vw) rotate(10deg);
+    }
+
+    20% {
+        transform: translateX(20vw) rotate(0deg);
+    }
+
+    30% {
+        transform: translateX(31vw) rotate(-10deg);
+    }
+
+    40% {
+        transform: translateX(42vw) rotate(10deg);
+    }
+
+    50% {
+        transform: translateX(50vw) rotate(0deg);
+    }
+
+    60% {
+        transform: translateX(58vw) rotate(0deg);
+    }
+
+    70% {
+        transform: translateX(72.5vw) rotate(-5deg);
+    }
+
+    80% {
+        transform: translateX(87vw) rotate(-10deg);
+    }
+
+    90% {
+        transform: translateX(95.5vw) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(97vw) rotate(3deg);
+
+    }
+}
+
+@keyframes swim3 {
+    0% {
+        transform: translateX(-12vw) rotate(0deg);
+    }
+
+    10% {
+        transform: translateX(0vw) rotate(10deg);
+    }
+
+    20% {
+        transform: translateX(12vw) rotate(0deg);
+    }
+
+    30% {
+        transform: translateX(24vw) rotate(-10deg);
+    }
+
+    40% {
+        transform: translateX(39vw) rotate(10deg);
+    }
+
+    50% {
+        transform: translateX(55vw) rotate(0deg);
+    }
+
+    60% {
+        transform: translateX(62vw) rotate(0deg);
+    }
+
+    70% {
+        transform: translateX(70s) rotate(-5deg);
+    }
+
+    80% {
+        transform: translateX(78vw) rotate(-10deg);
+    }
+
+    90% {
+        transform: translateX(88vw) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(98vw) rotate(3deg);
+
+    }
+}
+
+.fish1 {
+    position: absolute;
+    width: 20%;
+    height: 250%;
+    background-image: url(img/fish1.webp);
+    background-size: auto 25%;
+    background-repeat: no-repeat;
+    z-index: 9806;
+    animation: swim1 19s linear infinite;
+}
+
+.fish2 {
+    position: absolute;
+    width: 20%;
+    height: 250%;
+    background-image: url(img/fish2.webp);
+    background-size: auto 25%;
+    background-repeat: no-repeat;
+    z-index: 9806;
+    animation: swim2 10s linear infinite;
+}
+
+.fish3 {
+    position: absolute;
+    width: 20%;
+    height: 250%;
+    background-image: url(img/fish3.webp);
+    background-size: auto 25%;
+    background-repeat: no-repeat;
+    z-index: 9806;
+    animation: swim3 6s linear infinite;
 }
 
 
