@@ -428,7 +428,7 @@ nav {
 .wave span {
     position: absolute;
     width: 20%;
-    height: 250%;
+    height: 200%;
     background-color: #5bc2e1;
     border-radius: 50%;
 }
@@ -502,141 +502,141 @@ nav {
 
 @keyframes swim1 {
     0% {
-        transform: translateX(-9vw) rotate(0deg);
+        transform: translateX(-9vw);
     }
 
     10% {
-        transform: translateX(-8vw) rotate(-10deg);
+        transform: translateX(4vw);
     }
 
     20% {
-        transform: translateX(20vw) rotate(0deg);
+        transform: translateX(17vw);
     }
 
     30% {
-        transform: translateX(31vw) rotate(10deg);
+        transform: translateX(31vw);
     }
 
     40% {
-        transform: translateX(42vw) rotate(-10deg);
+        transform: translateX(45vw);
     }
 
     50% {
-        transform: translateX(50vw) rotate(-10deg);
+        transform: translateX(52vw);
     }
 
     60% {
-        transform: translateX(58vw) rotate(0deg);
+        transform: translateX(59vw);
     }
 
     70% {
-        transform: translateX(72.5vw) rotate(5deg);
+        transform: translateX(68vw);
     }
 
     80% {
-        transform: translateX(87vw) rotate(-10deg);
+        transform: translateX(77vw);
     }
 
     90% {
-        transform: translateX(95.5vw) rotate(0deg);
+        transform: translateX(87vw);
     }
 
     100% {
-        transform: translateX(97vw) rotate(3deg);
-
+        transform: translateX(97vw);
     }
 }
 
+
 @keyframes swim2 {
     0% {
-        transform: translateX(-11vw) rotate(0deg);
+        transform: translateX(-9vw);
     }
 
     10% {
-        transform: translateX(-11vw) rotate(10deg);
+        transform: translateX(-4.5vw);
     }
 
     20% {
-        transform: translateX(20vw) rotate(0deg);
+        transform: translateX(3vw);
     }
 
     30% {
-        transform: translateX(31vw) rotate(-10deg);
+        transform: translateX(11.5vw);
     }
 
     40% {
-        transform: translateX(42vw) rotate(10deg);
+        transform: translateX(19vw);
     }
 
     50% {
-        transform: translateX(50vw) rotate(0deg);
+        transform: translateX(30vw);
     }
 
     60% {
-        transform: translateX(58vw) rotate(0deg);
+        transform: translateX(43vw);
     }
 
     70% {
-        transform: translateX(72.5vw) rotate(-5deg);
+        transform: translateX(61vw);
     }
 
     80% {
-        transform: translateX(87vw) rotate(-10deg);
+        transform: translateX(76vw);
     }
 
     90% {
-        transform: translateX(95.5vw) rotate(0deg);
+        transform: translateX(88vw);
     }
 
     100% {
-        transform: translateX(97vw) rotate(3deg);
+        transform: translateX(97vw);
 
     }
 }
 
 @keyframes swim3 {
     0% {
-        transform: translateX(-12vw) rotate(0deg);
+        transform: translateX(-12vw);
     }
 
     10% {
-        transform: translateX(0vw) rotate(10deg);
+        transform: translateX(0vw);
     }
 
     20% {
-        transform: translateX(12vw) rotate(0deg);
+        transform: translateX(12vw);
     }
 
     30% {
-        transform: translateX(24vw) rotate(-10deg);
+        transform: translateX(24vw);
     }
 
     40% {
-        transform: translateX(39vw) rotate(10deg);
+        transform: translateX(39vw);
     }
 
     50% {
-        transform: translateX(55vw) rotate(0deg);
+        transform: translateX(55vw);
     }
 
     60% {
-        transform: translateX(62vw) rotate(0deg);
+        transform: translateX(62vw);
     }
 
     70% {
-        transform: translateX(70s) rotate(-5deg);
+        transform: translateX(70s);
     }
 
     80% {
-        transform: translateX(78vw) rotate(-10deg);
+        transform: translateX(78vw);
     }
 
     90% {
-        transform: translateX(88vw) rotate(0deg);
+        transform: translateX(88vw);
     }
 
     100% {
-        transform: translateX(98vw) rotate(3deg);
+        transform: translateX(98vw);
 
     }
 }
@@ -644,34 +644,37 @@ nav {
 .fish1 {
     position: absolute;
     width: 20%;
-    height: 250%;
+    height: 100%;
+    bottom: -10px;
     background-image: url(img/fish1.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
     z-index: 9806;
-    animation: swim1 19s linear infinite;
+    animation: swim1 7s linear infinite;
 }
 
 .fish2 {
     position: absolute;
     width: 20%;
-    height: 250%;
+    height: 100%;
+    bottom: -30px;
     background-image: url(img/fish2.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
     z-index: 9806;
-    animation: swim2 10s linear infinite;
+    animation: swim2 9s linear infinite;
 }
 
 .fish3 {
     position: absolute;
     width: 20%;
-    height: 250%;
+    height: 100%;
+    bottom: -20px;
     background-image: url(img/fish3.webp);
     background-size: auto 25%;
     background-repeat: no-repeat;
     z-index: 9806;
-    animation: swim3 6s linear infinite;
+    animation: swim3 16s linear infinite;
 }
 
 
