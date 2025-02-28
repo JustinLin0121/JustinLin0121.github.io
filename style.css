@@ -502,7 +502,7 @@ nav {
 
 @keyframes swim1 {
     0% {
-        transform: translateX(-8vw) rotate(0deg);
+        transform: translateX(-9vw) rotate(0deg);
     }
 
     10% {
@@ -549,11 +549,11 @@ nav {
 
 @keyframes swim2 {
     0% {
-        transform: translateX(-10vw) rotate(0deg);
+        transform: translateX(-11vw) rotate(0deg);
     }
 
     10% {
-        transform: translateX(-10vw) rotate(10deg);
+        transform: translateX(-11vw) rotate(10deg);
     }
 
     20% {
