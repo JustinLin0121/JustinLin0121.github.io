@@ -415,12 +415,34 @@ nav {
     display: flex;
 }
 
+.intro_container {
+    margin-top: 5vw;
+    margin-right: 5vw;
+    margin-left: auto;
+    width: auto;
+    text-align: right;
+}
 
+.intro_container h1 {
+    font-size: 400%;
+    margin: 0;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
 
-.github_head{
+.intro_container p {
+    font-size: 250%;
+    margin: 0;
+}
+
+.turn {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+.github_head {
     margin: 5vw;
     height: 30vw;
-    margin-left: auto;
 }
 
 
@@ -716,11 +738,10 @@ nav {
 /* third page */
 .third_page {
     background-color: var(--backcolorlightgr);
+    display: flex;
 }
 
 .bamboo {
-    height: 100%;
-    background-image: url(img/bamboo.webp);
-    background-size: auto 100vh;
-    background-repeat: no-repeat;
+    height: 100vh;
+    margin-left: auto;
 }
