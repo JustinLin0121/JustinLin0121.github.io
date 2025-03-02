@@ -435,15 +435,64 @@ nav {
     margin: 0;
 }
 
+
+
 .turn {
     display: inline-block;
     transform: scaleX(-1);
+    text-decoration: none;
 }
 
 .github_head {
     margin: 5vw;
     height: 30vw;
 }
+
+
+
+
+/* confetti */
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall linear;
+    z-index: 9999;
+}
+
+
+
+
+
+
+
 
 
 /* wave */
@@ -745,3 +794,36 @@ nav {
     height: 100vh;
     margin-left: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    color: white;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    white-space: pre;
+}
+
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
