@@ -4,9 +4,9 @@
     box-sizing: border-box !important;
 } */
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
-} */
+}
 
 :root {
     --shadow: #56565669;
