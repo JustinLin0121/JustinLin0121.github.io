@@ -1,120 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>彩屑效果 (优化版)</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #222;
-        }
-
-        .confetti-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            opacity: 0;
-            animation: fall linear;
-
-
-
-
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(105vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .button-container {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #ff4081;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #e91e63;
-        }
-    </style>
+    <title>Update xss Value</title>
 </head>
 
 <body>
-
-    <div class="confetti-container"></div>
-    <div class="button-container">
-        <button onclick="createConfetti()">放煙花！🎉</button>
-    </div>
+    <input id="xss" type="text" value="initial">
+    <button onclick="vulnerable()">dfdf</button>
+    <div id="output"></div>
 
     <script>
-        const numConfetti = 200; // 每次生成的彩屑數量
-        const maxConfetti = 50000;
-        const colors = ["#ff0", "#f00", "#0f0", "#00f", "#f0f", "#0ff", "#ff5722", "#8e44ad"];
-        let activeConfetti = [];
-
-        function createConfetti() {
-            const container = document.querySelector('.confetti-container');
-            if (!container) return;
-
-            for (let i = 0; i < numConfetti; i++) {
-                // if (activeConfetti.length >= maxConfetti) return;
-
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.width = `${Math.random() * 10 + 5}px`; // Random width between 5px and 20px
-                confetti.style.height = `${Math.random() * 15 + 5}px`; // Random height between 5px and 20px
-                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                confetti.style.animationDelay = `${Math.random() * 4}s`;
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-                container.appendChild(confetti);
-                activeConfetti.push(confetti);
-            }
-            requestAnimationFrame(removeOldConfetti);
-        }
-
-        function removeOldConfetti() {
-            activeConfetti = activeConfetti.filter(confetti => {
-                if (!confetti.getBoundingClientRect().top || confetti.getBoundingClientRect().top > window.innerHeight) {
-                    confetti.remove();
-                    return false;
-                }
-                return true;
-            });
-            if (activeConfetti.length > 0) requestAnimationFrame(removeOldConfetti);
+        function vulnerable() {
+            document.getElementById("output").innerHTML = document.getElementById("xss").value;
         }
     </script>
 </body>
