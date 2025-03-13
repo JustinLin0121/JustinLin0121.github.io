@@ -144,13 +144,15 @@ nav {
 /* secend page */
 .second_page {
     background-color: var(--backcolorbl);
-
 }
 
-.github{
+.github {
     width: 200px;
     height: auto;
-    padding-left: 0;
+    display: flex;
+    justify-content: center;  
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 
