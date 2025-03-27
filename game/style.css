@@ -1,0 +1,15 @@
+.player{
+    height: 100px;
+    width: 50px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.container{
+    height: 600px;
+    width: 1200px;
+    background-color: aqua;
+    margin: 20px;
+    position: fixed;
+}
