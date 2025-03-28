@@ -1,8 +1,8 @@
-.t{
+.t {
     position: absolute;
 }
 
-.player{
+.player {
     height: 150px;
     width: 60px;
     background-color: yellow;
@@ -10,7 +10,7 @@
     left: 0px;
 }
 
-.container{
+.container {
     height: 600px;
     width: 1200px;
     background-color: aqua;
@@ -18,7 +18,7 @@
     position: fixed;
 }
 
-.wall{
+.wall {
     height: 250px;
     width: 20px;
     background-color: brown;
@@ -26,7 +26,7 @@
     left: 590px;
 }
 
-.ball{
+.ball {
     height: 70px;
     width: 70px;
     border-radius: 100%;

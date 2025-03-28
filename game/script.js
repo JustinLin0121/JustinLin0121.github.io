@@ -62,7 +62,7 @@ function update() {
         isJumping = false;
         isJumping2 = false;
     }
-    if (movingRight && posX < 540) {
+    if (movingRight && posX < 530) {
         posX += 10;
     }
     if (movingLeft && posX > 0) {
