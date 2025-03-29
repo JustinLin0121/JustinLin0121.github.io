@@ -78,6 +78,9 @@ function update() {
     } else if (ballY >= 530) {
         ballY = 530;
         ballVY *= -1;
+    } else if (ballX <= posX + 60 && ballX + 50 >= posX && ballY <= posY + 150) {
+        ballY = posY + 150;
+        ballVY *= -1
     }
     ball.style.bottom = ballY + "px";
 
