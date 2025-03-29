@@ -31,4 +31,10 @@
     width: 70px;
     border-radius: 100%;
     background-color: blue;
+    bottom: 1140px;
+    left: 1px;
+}
+
+.s {
+    left: 1140px;
 }
