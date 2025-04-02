@@ -4,6 +4,43 @@ document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 400;
+console.log(`
+                                                   
+                                                   
+                                                   
+                    .:--====-:.                    
+                .=*#%%#*+=---=*#*=.                
+              -**-:::::-=+**+-  .-**-              
+            =#=.            :=#*-  .=#=            
+          :#+.                 .+#=  .*#:          
+         -%%*********+=:.        .+#- #+#-         
+        =#.          .-=**=.       .*## .#=        
+       -#.               .-**-      :%:  .#-       
+      .%:                   .+#:   .#-    =%.      
+      +#+*##*****+=:          :#+ :#-     ##+      
+      %=::%.     #++#*:         +##:     +*:%      
+     :%  *=     =#   :+#:     -+#-      =#. %:     
+     -# .%.     %:     :#+=+*#+:       +#.  #-     
+     =* -#     :#       -#-:         .**.   *=     
+     -# ++     =*       *=          =#-     #-     
+     .%.++     ++       %:       .=#+.     -%.     
+      *+=*     ++       %.     -+#=.      =%*      
+      :%-%.    -#       %:.:=*#+:       .*#%:      
+       =##=    .%.      *#*=-.         -#=#=       
+        +%%.    ++      -#           -#+.*+        
+         +%#    .%-      #=       .=#+..*+         
+          -%*    :%:     .#-  .-+#*-  -#-          
+           .+#-   -#:     .###*=:   -#+.           
+             .+#=: :#=      =#=  :=#+.             
+                -+#*+%#:....:=%%#+-                
+                   .:=++***++=:.                   
+                                                   
+                                                   
+                                                   
+                                                   
+                     
+`);
+
 
 const player1 = {
     name: "player1",
@@ -12,7 +49,7 @@ const player1 = {
     v: 7,
     vx: 0,
     vy: 0,
-    jumpPower: 15,
+    jumpPower: 12,
     r: 40,
     onGround: false,
     color: "blue",
@@ -29,7 +66,7 @@ const player1 = {
         this.v = 7;
         this.vx = 0;
         this.vy = 0;
-        this.jumpPower = 15;
+        this.jumpPower = 12;
         this.r = 40;
         this.onGround = false;
     }
@@ -42,7 +79,7 @@ const player2 = {
     v: 7,
     vx: 0,
     vy: 0,
-    jumpPower: 15,
+    jumpPower: 12,
     r: 40,
     onGround: false,
     color: "red",
@@ -59,7 +96,7 @@ const player2 = {
         this.v = 7;
         this.vx = 0;
         this.vy = 0;
-        this.jumpPower = 15;
+        this.jumpPower = 12;
         this.r = 40;
         this.onGround = false;
     }
@@ -81,8 +118,8 @@ const ball = {
     }
 };
 
-const gravity = 0.5;
-const friction = 0.9;
+const gravity = 0.3;
+// const friction = 0.9;
 const keys = {};
 
 document.addEventListener("keydown", (e) => keys[e.key] = true);
@@ -144,7 +181,7 @@ function updateBall() {
 
 
     if ((Math.abs(ball.x - 400) <= ball.r + 5 && ball.y <= 225 - ball.r && ball.y >= 210 - ball.r)) {
-        ball.vy = -10;
+        ball.vy = -5;
         ball.y = 100 + ball.r
     }
     else if (Math.abs(ball.x - 400) <= ball.r + 5 && ball.y >= 225 - ball.r) {
@@ -162,11 +199,11 @@ function updateBall() {
             if (keys[player.killkey]) {
                 if (keys[player.leftKey]) {
                     if (keys[player.downKey]) {
-                        ball.vy = 7;
-                        ball.vx = -5;
+                        ball.vy = 3;
+                        ball.vx = -7;
                         document.getElementById(player.name).value = "Down spike"
                     } else if (keys[player.jumpKey]) {
-                        ball.vy = -15;
+                        ball.vy = -10;
                         ball.vx = -10;
                         document.getElementById(player.name).value = "Up spike"
                     } else {
@@ -176,11 +213,11 @@ function updateBall() {
                     }
                 } else if (keys[player.rightKey]) {
                     if (keys[player.downKey]) {
-                        ball.vy = 7;
-                        ball.vx = 5;
+                        ball.vy = 3;
+                        ball.vx = 7;
                         document.getElementById(player.name).value = "Down spike"
                     } else if (keys[player.jumpKey]) {
-                        ball.vy = -15;
+                        ball.vy = -10;
                         ball.vx = 15;
                         document.getElementById(player.name).value = "Up spike"
                     } else {
@@ -188,6 +225,14 @@ function updateBall() {
                         ball.vx = 20;
                         document.getElementById(player.name).value = "Normal spike"
                     }
+                } else if (keys[player.downKey]) {
+                    ball.y = 120;
+                    ball.vx = (dx > 0 ? 1 : -1) * 30;
+                    document.getElementById(player.name).value = "super spike"
+                } else {
+                    ball.vx = (dx > 0 ? 1 : -1) * 8;
+                    ball.vy = -Math.abs(ball.vy) - 1;
+                    document.getElementById(player.name).value = ""
                 }
 
             } else {
