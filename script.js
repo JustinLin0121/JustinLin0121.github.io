@@ -26,10 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", changeActiveSection);
 });
 
-
-document.addEventListener("mousemove", function (event) {
+document.addEventListener("mousemove" ,function (event) {
   let header = document.querySelector("header");
-  if (event.clientY < 80) {
+  let subMenu = document.querySelector('.list li > ul');
+  let computedStyle = window.getComputedStyle(subMenu);
+  let isSubMenuVisible = computedStyle.visibility === "visible" && computedStyle.opacity === "1";
+  if (event.clientY < 80 || isSubMenuVisible === true) {
     header.style.top = "0";
   } else {
     header.style.top = "-80px";

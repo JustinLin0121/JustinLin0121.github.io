@@ -76,18 +76,39 @@ nav {
     text-shadow: 0 0 10px rgb(255, 255, 0);
 }
 
+/* sub list */ 
+.list li>ul {
+    visibility: hidden;
+    opacity: 0;
+    list-style: none;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px var(--shadow);
+    transition: visibility 0.5s, opacity 0.2s linear;
+}
 
+.list li:hover>ul, .list li>ul:hover {
+    visibility: visible;
+    opacity: 1;
+}
 
+.list li>ul>li {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+}
 
-
-
-
-
-
-
-
-
-
+.list li>ul>li:hover {
+    background-color: #f0f0f0;
+    color: rgb(255, 255, 0);
+    text-shadow: 0 0 10px rgb(255, 255, 0);
+}
 
 /* first page */
 
@@ -133,14 +154,6 @@ nav {
     padding-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
 /* secend page */
 .second_page {
     background-color: var(--backcolorbl);
@@ -160,14 +173,11 @@ nav {
 }
 
 
-
-
 /* third page */
 .third_page {
     background-color: var(--backcolorgr);
     display: flex;
 }
-
 
 
 /* footer */
