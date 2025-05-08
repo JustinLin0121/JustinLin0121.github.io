@@ -122,15 +122,18 @@ const gravity = 0.3;
 // const friction = 0.9;
 const keys = {};
 
-document.addEventListener("keydown", (e) => keys[e.key] = true);
 document.addEventListener("keyup", (e) => keys[e.key] = false);
+document.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
+    console.log("Key down:", e.key, keys);
+});
 function updatePlayer1() {
     player1.x += player1.vx;
     if (keys[player1.leftKey] && player1.x > 0 + player1.r) player1.vx = -player1.v;
     else if (keys[player1.rightKey] && player1.x <= 390 - player1.r) player1.vx = player1.v;
     else player1.vx = 0;
     if (keys[player1.jumpKey] && player1.onGround) { player1.vy = -player1.jumpPower; player1.onGround = false; }
-
+    // console.log("player1: "+player1.vx);
     player1.vy += gravity;
     player1.y += player1.vy;
 
@@ -143,7 +146,7 @@ function updatePlayer2() {
     else if (keys[player2.rightKey] && player2.x < 800 - player2.r) player2.vx = player2.v;
     else player2.vx = 0;
     if (keys[player2.jumpKey] && player2.onGround) { player2.vy = -player2.jumpPower; player2.onGround = false; }
-
+    // console.log("player2: "+player2.vx);
     player2.vy += gravity;
     player2.y += player2.vy;
 

@@ -163,8 +163,8 @@ nav {
 .github {
     width: 200px;
     height: auto;
-    display: flex;
-    justify-content: center;  
+    /* display: flex; */
+    /* justify-content: center;   */
     padding: 20px;
 }
 
@@ -186,7 +186,7 @@ footer {
     background-color: #8E7C6A;
     padding: 10px;
     text-align: center;
-    white-space: pre;
+
 }
 
 footer a {
