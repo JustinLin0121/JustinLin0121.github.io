@@ -70,7 +70,7 @@
                     E_obj /= dataArray.length;
 
                     // 2. 參考光 (Reference Wave)：波長相同 (fixedK)，帶有微小傾斜角的平面波
-                    const E_ref = Math.sin(fixedK * z_screen + 0.05 * x - t * 100 * fixedK);
+                    const E_ref = Math.sin(fixedK * z_screen  - t * 100 * fixedK);
 
                     // 3. 物光與參考光干涉疊加
                     const E_total = E_obj + E_ref;
