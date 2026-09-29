@@ -3,19 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>全息干涉模擬 (固定波長 50 與可調 Z 平面)</title>
+    <title>干涉模擬</title>
 </head>
 
 <body>
     <canvas id="myCanvas" width="500" height="500"></canvas><br>
-    物體點 X (-250~250): <input type="number" id="x" value="0">
+    X (-250~250): <input type="number" id="x" value="0">
     Y (-250~250): <input type="number" id="y" value="0">
-    底片平面 Z: <input type="number" id="z_plane" value="100">
-    初相位(pi): <input type="number" id="fi" value="0">
-    <button onclick="getInput()">新增物點</button>
-    <button onclick="clearPoints()">清除所有物點</button>
-    <p>說明：波長固定為 50。底片範圍對應空間頂點 (\pm 250, \pm 250, Z)。</p>
-
+    初相位(phi): <input type="number" id="phi" value="0">
+    <button onclick="getInput()">新增</button>
+    Z 距離: <input type="number" id="z_plane" value="100">
     <script>
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
@@ -24,25 +21,20 @@
         const imageData = ctx.createImageData(width, height);
         const data = imageData.data;
         let dataArray = [];
-        let t = 0;
 
-        // 固定波長與波數 k
         const lambda = 10;
         const fixedK = 2 * Math.PI / lambda;
 
-        // 預設在原點 (0, 0, 0) 放置一個物點
+        // 預設
         dataArray.push({ x: 0, y: 0, fi: 0 });
 
         function getInput() {
             const x = parseFloat(document.getElementById('x').value);
             const y = parseFloat(document.getElementById('y').value);
-            const fi = parseFloat(document.getElementById('fi').value) * Math.PI;
+            const fi = parseFloat(document.getElementById('phi').value) * Math.PI;
 
             dataArray.push({ x: x, y: y, fi: fi });
-        }
-
-        function clearPoints() {
-            dataArray = [];
+            draw();
         }
 
         function draw() {
@@ -50,7 +42,6 @@
 
             for (let py = 0; py < height; py++) {
                 for (let px = 0; px < width; px++) {
-                    // 將像素坐標 (0~500) 映射到正方形底片範圍 (-250 ~ 250)
                     const x = px - 250;
                     const y = py - 250;
                     const index = (py * width + px) * 4;
@@ -62,21 +53,13 @@
 
                     let E_obj = 0;
 
-                    // 1. 計算所有物點到底片平面 (x, y, z_screen) 的球面波疊加
                     dataArray.forEach(element => {
                         const distance = Math.sqrt((x - element.x) ** 2 + (y - element.y) ** 2 + z_screen ** 2);
-                        E_obj += Math.sin(distance * fixedK - t * 100 * fixedK + element.fi);
+                        E_obj += Math.sin(distance * fixedK + element.fi);
                     });
                     E_obj /= dataArray.length;
 
-                    // 2. 參考光 (Reference Wave)：波長相同 (fixedK)，帶有微小傾斜角的平面波
-                    const E_ref = Math.sin(fixedK * z_screen  - t * 100 * fixedK);
-
-                    // 3. 物光與參考光干涉疊加
-                    const E_total = E_obj + E_ref;
-
-                    // 4. 將振幅映射到 0~255 灰階
-                    const gray = Math.floor(((E_total / 2) + 1) * 127.5);
+                    const gray = Math.floor((E_obj + 1) * 127.5);
                     const clampedGray = Math.max(0, Math.min(255, gray));
 
                     data[index] = clampedGray;      // R
@@ -85,11 +68,10 @@
                     data[index + 3] = 255;          // A
                 }
             }
-            t += 0.01;
             ctx.putImageData(imageData, 0, 0);
         }
 
-        setInterval(draw, 10);
+        draw();
     </script>
 </body>
 
