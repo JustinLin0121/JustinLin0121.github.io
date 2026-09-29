@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全息干涉模擬 (z = 100 平面)</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas><br>
+    物體點 X: <input type="number" id="x" value="250">
+    Y: <input type="number" id="y" value="250">
+    波長: <input type="number" id="long" value="20">
+    初相位(pi): <input type="number" id="fi" value="0">
+    <button onclick="getInput()">新增物點</button>
+    <p>說明：xy 平面上的點發出球面波，傳播到 z = 100 平面與參考光干涉。</p>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        const imageData = ctx.createImageData(width, height);
+        const data = imageData.data;
+        let dataArray = [];
+        let t = 0;
+
+        // 預設在中心 (250, 250, 0) 放置一個物點以便直接觀看
+        dataArray.push({ x: 250, y: 250, k: 2 * Math.PI / 20, fi: 0 });
+
+        function getInput() {
+            const x = parseFloat(document.getElementById('x').value);
+            const y = parseFloat(document.getElementById('y').value);
+            const wavelength = parseFloat(document.getElementById('long').value);
+            const k = 2 * Math.PI / wavelength;
+            const fi = parseFloat(document.getElementById('fi').value) * Math.PI;
+
+            dataArray.push({ x: x, y: y, k: k, fi: fi });
+        }
+
+        function draw() {
+            const z_screen = 100; // 觀測平面固定在 z = 100
+
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const index = (y * width + x) * 4;
+                    
+                    if (dataArray.length === 0) {
+                        data[index] = 0; data[index+1] = 0; data[index+2] = 0; data[index+3] = 255;
+                        continue;
+                    }
+
+                    let E_obj = 0;
+                    let avg_k = 0;
+
+                    // 1. 計算所有 xy 平面上的物點到 z=100 平面上該像素點的物光疊加
+                    dataArray.forEach(element => {
+                        const distance = Math.sqrt((x - element.x) ** 2 + (y - element.y) ** 2 + z_screen ** 2);
+                        E_obj += Math.sin(distance * element.k - t * 100 * element.k + element.fi);
+                        avg_k += element.k;
+                    });
+                    E_obj /= dataArray.length;
+                    avg_k /= dataArray.length;
+
+                    // 2. 模擬參考光 (Reference Wave)：設定為帶有微小傾斜角的平面波
+                    const E_ref = Math.sin(avg_k * z_screen + 0.05 * x - t * 100 * avg_k);
+
+                    // 3. 物光與參考光干涉疊加
+                    const E_total = E_obj + E_ref;
+
+                    // 4. 將振幅映射到 0~255 灰階
+                    const gray = Math.floor(((E_total / 2) + 1) * 127.5);
+                    const clampedGray = Math.max(0, Math.min(255, gray));
+
+                    data[index] = clampedGray;      // R
+                    data[index + 1] = clampedGray;  // G
+                    data[index + 2] = clampedGray;  // B
+                    data[index + 3] = 255;   // A
+                }
+            }
+            t += 0.01;
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        setInterval(draw, 10);
+    </script>
+</body>
+
+</html>
