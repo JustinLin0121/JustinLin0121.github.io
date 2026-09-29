@@ -12,7 +12,8 @@
     Y (-250~250): <input type="number" id="y" value="0">
     初相位(phi): <input type="number" id="phi" value="0">
     <button onclick="getInput()">新增</button>
-    Z 距離: <input type="number" id="z_plane" value="100">
+    Z 距離: <input type="number" id="z_plane" value="100" oninput="draw()">
+
     <script>
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
